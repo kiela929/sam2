@@ -7,22 +7,28 @@ import lombok.*;
 @Builder // 빌더를 사용할 수 있게 함
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Entity(name="test_entity") // 테이블 명을 작성
+@Entity(name="test_sam") // 테이블 명을 작성
 
 
 public class MemberEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long pid;
+    private long id;
 
-    @Column(nullable = false, unique = true, length = 30)
-    private String username;
-
-    @Column(nullable = false, length = 100)
+    @Column(nullable = false, length = 10)
     private String name;
 
-    public MemberEntity(String username, String name) {
-        this.username = username;
+    @Column(nullable = false, length = 50)
+    private String email;
+
+    @Column(nullable = false, length = 20)
+    private String password;
+
+
+    public MemberEntity(String name, String email, String password) {
+
         this.name = name;
+        this.email = email;
+        this.password = password;
     }
 }

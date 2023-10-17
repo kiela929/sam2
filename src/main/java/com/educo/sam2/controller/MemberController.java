@@ -32,8 +32,9 @@ public class MemberController {
     @PostMapping("member")
     public MemberEntity signUp() {
         final MemberEntity member = MemberEntity.builder()
-                .username("test_user@gmail.com")
                 .name("test user")
+                .email("test_user@gmail.com")
+                .password("111111")
                 .build();
         return memberRepository.save(member);
     }
